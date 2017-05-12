@@ -7,6 +7,7 @@
 //
 
 #import "CardViewController.h"
+#import <WebKit/WKWebView.h>
 
 @interface CardViewController ()
 
@@ -18,7 +19,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setCustomerTitle:@"卡券"];
+    
 }
+    
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -1,0 +1,8 @@
+platform :ios, '7.0' 
+
+target 'MyTabBarCustom' do
+
+pod 'SDWebImage'
+
+end
+
