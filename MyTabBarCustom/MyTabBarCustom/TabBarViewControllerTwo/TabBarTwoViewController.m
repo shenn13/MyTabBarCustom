@@ -61,31 +61,31 @@
  ************************************/
 
 
-//- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
-//    NSLog(@"item name = %@", item.title);
-//    NSInteger index = [self.tabBar.items indexOfObject:item];
-//    [self animationWithIndex:index];
-//    if([item.title isEqualToString:@"发现"]){
-//        NSLog(@"---------发现");
-//    }
-//}
-//- (void)animationWithIndex:(NSInteger) index {
-//    
-//    NSMutableArray * tabbarbuttonArray = [NSMutableArray array];
-//    for (UIView *tabBarButton in self.tabBar.subviews) {
-//        if ([tabBarButton isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
-//            [tabbarbuttonArray addObject:tabBarButton];
-//        }
-//    }
-//    CABasicAnimation*pulse = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-//    pulse.timingFunction= [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-//    pulse.duration = 0.2;
-//    pulse.repeatCount= 1;
-//    pulse.autoreverses= YES;
-//    pulse.fromValue= [NSNumber numberWithFloat:0.7];
-//    pulse.toValue= [NSNumber numberWithFloat:1.3];
-//    [[tabbarbuttonArray[index] layer] addAnimation:pulse forKey:nil];
-//}
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
+    NSLog(@"item name = %@", item.title);
+    NSInteger index = [self.tabBar.items indexOfObject:item];
+    [self animationWithIndex:index];
+    if([item.title isEqualToString:@"发现"]){
+        NSLog(@"---------发现");
+    }
+}
+- (void)animationWithIndex:(NSInteger) index {
+    
+    NSMutableArray * tabbarbuttonArray = [NSMutableArray array];
+    for (UIView *tabBarButton in self.tabBar.subviews) {
+        if ([tabBarButton isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+            [tabbarbuttonArray addObject:tabBarButton];
+        }
+    }
+    CABasicAnimation*pulse = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    pulse.timingFunction= [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    pulse.duration = 0.2;
+    pulse.repeatCount= 1;
+    pulse.autoreverses= YES;
+    pulse.fromValue= [NSNumber numberWithFloat:0.7];
+    pulse.toValue= [NSNumber numberWithFloat:1.3];
+    [[tabbarbuttonArray[index] layer] addAnimation:pulse forKey:nil];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

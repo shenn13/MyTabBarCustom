@@ -14,6 +14,7 @@
 #import "TabBarSelectTableViewController.h"
 #import "NavigationViewController.h"
 
+
 @interface AppDelegate ()
     
 @end
@@ -25,52 +26,57 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    [self launchView];
+//    [self launchView];
+//    [RecordBtn registerPlusButton];
+    
+    TabBarSelectTableViewController *vc = [[TabBarSelectTableViewController alloc] init];
+    NavigationViewController *naVC = [[NavigationViewController alloc] initWithRootViewController:vc];
+    self.window.rootViewController = naVC;
     
     [self.window makeKeyWindow];
     
     return YES;
 }
     
-- (void)launchView{
-    
-    NSString *gifImageURL = @"http://img1.gamedog.cn/2013/06/03/43-130603140F30.gif";
-    ///设置启动页
-    [LaunchViewController showWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height - 150) ImageURL:gifImageURL advertisingURL:@"http://www.jianshu.com/p/5e2db17ec3f0" timeSecond:5 hideSkip:YES imageLoadGood:^(UIImage *image, NSString *imageURL) {
-        
-        /// 广告加载结束
-        NSLog(@"%@ %@",image,imageURL);
-        
-    } clickImage:^(UIViewController *launchVC){
-    
-        /// 点击广告
-        //2.在webview中打开
-        LaunchAdViewController *VC = [[LaunchAdViewController alloc] init];
-        VC.urlStr = @"http://www.jianshu.com/p/5e2db17ec3f0";
-        VC.title = @"广告";
-        VC.AppDelegateSele= -1;
-        
-        VC.WebBack= ^() {
-            //广告展示完成回调,设置window根控制器
-            TabBarSelectTableViewController *vc = [[TabBarSelectTableViewController alloc] init];
-            NavigationViewController *naVC = [[NavigationViewController alloc] initWithRootViewController:vc];
-            self.window.rootViewController = naVC;
-            
-        };
-        NavigationViewController *naVC = [[NavigationViewController alloc]initWithRootViewController:VC];
-        
-        [launchVC presentViewController:naVC animated:YES completion:nil];
-        
-    } theAdEnds:^{
-        //广告展示完成回调,设置window根控制器
-        TabBarSelectTableViewController *vc = [[TabBarSelectTableViewController alloc] init];
-        NavigationViewController *naVC = [[NavigationViewController alloc] initWithRootViewController:vc];
-        self.window.rootViewController = naVC;
-        
-    }];
-    
-    
-}
+//- (void)launchView{
+//
+//    NSString *gifImageURL = @"https://upload-images.jianshu.io/upload_images/1674941-a2a784576a9721a2.gif?imageMogr2/auto-orient/strip|imageView2/2/w/349";
+//    ///设置启动页
+//    [LaunchViewController showWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height - 150) ImageURL:gifImageURL advertisingURL:@"http://www.jianshu.com/p/5e2db17ec3f0" timeSecond:5 hideSkip:YES imageLoadGood:^(UIImage *image, NSString *imageURL) {
+//
+//        /// 广告加载结束
+//        NSLog(@"%@ %@",image,imageURL);
+//
+//    } clickImage:^(UIViewController *launchVC){
+//
+//        /// 点击广告
+//        //2.在webview中打开
+//        LaunchAdViewController *VC = [[LaunchAdViewController alloc] init];
+//        VC.urlStr = @"http://www.jianshu.com/p/5e2db17ec3f0";
+//        VC.title = @"广告";
+//        VC.AppDelegateSele= -1;
+//
+//        VC.WebBack= ^() {
+//            //广告展示完成回调,设置window根控制器
+//            TabBarSelectTableViewController *vc = [[TabBarSelectTableViewController alloc] init];
+//            NavigationViewController *naVC = [[NavigationViewController alloc] initWithRootViewController:vc];
+//            self.window.rootViewController = naVC;
+//
+//        };
+//        NavigationViewController *naVC = [[NavigationViewController alloc]initWithRootViewController:VC];
+//
+//        [launchVC presentViewController:naVC animated:YES completion:nil];
+//
+//    } theAdEnds:^{
+//        //广告展示完成回调,设置window根控制器
+//        TabBarSelectTableViewController *vc = [[TabBarSelectTableViewController alloc] init];
+//        NavigationViewController *naVC = [[NavigationViewController alloc] initWithRootViewController:vc];
+//        self.window.rootViewController = naVC;
+//
+//    }];
+//
+//
+//}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

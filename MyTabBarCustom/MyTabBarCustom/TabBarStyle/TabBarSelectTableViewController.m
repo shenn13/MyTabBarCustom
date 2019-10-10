@@ -10,6 +10,7 @@
 
 #import "TabBarViewController.h"
 #import "TabBarTwoViewController.h"
+//#import "TabBarThreeViewController.h"
 
 @interface TabBarSelectTableViewController (){
     
@@ -25,8 +26,8 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.title = @"TabBar";
     
-    _dataArr = @[@"TabBar样式一",@"TabBar样式二"];
-    
+//    _dataArr = @[@"TabBar样式一",@"TabBar样式二",@"TabBar样式三"];
+       _dataArr = @[@"TabBar样式一",@"TabBar样式二"];
 }
 
 #pragma mark - TableViewDelegate
@@ -53,6 +54,11 @@
  
         [self presentViewController:[TabBarTwoViewController new] animated:YES completion:nil];
     }
+//    if (indexPath.row == 2) {
+//
+//        [self presentViewController:[TabBarThreeViewController new] animated:YES completion:nil];
+//    }
+    
     
     
 }

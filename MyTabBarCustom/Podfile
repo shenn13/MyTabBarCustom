@@ -4,5 +4,7 @@ target 'MyTabBarCustom' do
 
 pod 'SDWebImage'
 
+#pod 'CYLTabBarController'
+
 end
 
